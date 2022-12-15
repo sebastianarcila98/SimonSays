@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Service
 public class CommandService {
@@ -24,11 +25,22 @@ public class CommandService {
 		return commandRepository.findById(id).get();
 	}
 
+	public Command getRandomCommand() {
+		List<Command> commands = new ArrayList<>();
+		commandRepository.findAll().forEach(commands::add);
+		return this.getRandomCommand(commands);
+	}
+
 	public void saveOrUpdate(Command command) {
 		commandRepository.save(command);
 	}
 
 	public void deleteCommandById(int id) {
 		commandRepository.deleteById(id);
+	}
+
+	private Command getRandomCommand(List<Command> commands) {
+		Random rand = new Random();
+		return commands.get(rand.nextInt(commands.size()));
 	}
 }

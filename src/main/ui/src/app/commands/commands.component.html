@@ -1,11 +1,15 @@
-<div *ngIf="commands">
-    <table style="text-align: left;">
-        <tr *ngFor="let command of commands">
+<div class="centered" *ngIf="commands" >
+    <ul>
+        <li *ngFor="let command of commands" >
             {{command.name}}
-        </tr>
-    </table>
-
+        </li>
+    </ul>
 </div>
-
-<button>get random command</button>
-<p>(to be implemented)</p>
+<div>
+    <button (click)="getRandom()">
+      <span>Button</span>
+    </button>
+</div>
+<div *ngIf="randomCommand">
+    <p>{{randomCommand.name}}</p>
+</div>

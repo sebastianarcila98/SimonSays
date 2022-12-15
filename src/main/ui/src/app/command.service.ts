@@ -8,7 +8,7 @@ import { Command } from './command';
   providedIn: 'root',
 })
 export class CommandService {
-  private url: string = '/commands';
+  private baseUrl: string = '/commands';
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +17,10 @@ export class CommandService {
   };
 
   getCommands(): Observable<Command[]> {
-    return this.http.get<Command[]>(this.url, this.httpOptions);
+    return this.http.get<Command[]>(this.baseUrl, this.httpOptions);
+  }
+
+  getRandomCommand(): Observable<Command> {
+    return this.http.get<Command>(`${this.baseUrl}/random`);
   }
 }

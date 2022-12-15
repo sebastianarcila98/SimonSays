@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -21,13 +22,23 @@ public class CommandController {
 
 	@GetMapping("/commands")
 	private List<Command> getAllCommands() {
-		System.out.println("test");
-		return commandService.getAllCommands();
+		List<Command> commands = commandService.getAllCommands();
+		commands.forEach(command -> System.out.println("List of all commands >>> " + command.getName()));
+		return commands;
 	}
 
 	@GetMapping("/commands/{id}")
 	private Command getCommand(@PathVariable("id") int id) {
-		return commandService.getCommandById(id);
+		Command command = commandService.getCommandById(id);
+		System.out.println("Command that was requested >>> " + command.getName());
+		return command;
+	}
+
+	@GetMapping("/commands/random")
+	private Command getRandomCommand() {
+		Command command = commandService.getRandomCommand();
+		System.out.println("Random command >>> " + command.getName());
+		return command;
 	}
 
 	@PostMapping("/commands")
