@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-.centered {
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.container {
     text-align: center;
+    margin: 10%;
+}
+
+h1 {
+    padding-bottom: 3%;
+}
+
+.title {
+    font-size: 60px;
 }

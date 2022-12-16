@@ -16,8 +16,13 @@ export class CommandService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
 
-  getCommands(): Observable<Command[]> {
+  getAllCommands(): Observable<Command[]> {
     return this.http.get<Command[]>(this.baseUrl, this.httpOptions);
+  }
+
+  deleteCommand(id: number): Observable<void> {
+    const url = `${this.baseUrl}/${id}`;
+    return this.http.delete<void>(url);
   }
 
   getRandomCommand(): Observable<Command> {

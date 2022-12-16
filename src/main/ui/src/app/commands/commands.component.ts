@@ -20,8 +20,13 @@ export class CommandsComponent implements OnInit {
 
   getAllCommands() {
     this.commandService
-      .getCommands()
+      .getAllCommands()
       .subscribe((command) => (this.commands = command));
+  }
+
+  deleteCommand(id: number) {
+    this.commandService.deleteCommand(id).subscribe();
+    this.commands = this.commands.filter((command) => command.id != id);
   }
 
   getRandom() {

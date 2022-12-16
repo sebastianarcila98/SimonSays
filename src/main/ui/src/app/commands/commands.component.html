@@ -1,15 +1,24 @@
-<div class="centered" *ngIf="commands" >
-    <ul>
-        <li *ngFor="let command of commands" >
-            {{command.name}}
-        </li>
-    </ul>
+<div *ngFor="let command of commands" >
+            <div class="shadow-lg p-3 mb-3 bg-light rounded">
+                <div class="hstack gap-3">
+                    <div class="bg-light">{{command.name}}</div>
+                    <div class="bg-light ms-auto"><button type="button" (click)="deleteCommand(command.id)" class="btn btn-outline-danger">Delete</button></div>
+                  </div>
+            </div>
+</div>
+<div class="shadow-lg p-3 mb-3 bg-light rounded">
+
+    <div class="hstack gap-3">
+        <input class="form-control me-auto" type="text" placeholder="Add new goal here..." aria-label="Add your item here...">
+        <div class="bg-light ms-auto"><button type="button" class="btn btn-outline-success">Save</button></div>
+    </div>
 </div>
 <div>
-    <button (click)="getRandom()">
-      <span>Button</span>
-    </button>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button (click)="getRandom()" class="btn-rand btn btn-primary" type="button">Get random command</button>
+      </div>
+    <hr>
 </div>
 <div *ngIf="randomCommand">
-    <p>{{randomCommand.name}}</p>
+        <h3 class="rand-command">{{randomCommand.name}}</h3>
 </div>
