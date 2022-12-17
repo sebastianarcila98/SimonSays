@@ -9,8 +9,8 @@
 <div class="shadow-lg p-3 mb-3 bg-light rounded">
 
     <div class="hstack gap-3">
-        <input class="form-control me-auto" type="text" placeholder="Add new goal here..." aria-label="Add your item here...">
-        <div class="bg-light ms-auto"><button type="button" class="btn btn-outline-success">Save</button></div>
+        <input class="form-control me-auto" type="text" id="command" name="command" placeholder="Add new goal here..." aria-label="Add your item here..." #command>
+        <div class="bg-light ms-auto"><button type="button" class="btn btn-outline-success" (click)="addCommand(command.value)">Save</button></div>
     </div>
 </div>
 <div>

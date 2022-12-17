@@ -38,9 +38,8 @@ public class CommandController {
 	}
 
 	@PostMapping("/commands")
-	private int saveCommand(@RequestBody Command command) {
-		commandService.saveOrUpdate(command);
-		return command.getId();
+	private Command saveCommand(@RequestBody String command) {
+		return commandService.saveOrUpdate(command);
 	}
 
 	@DeleteMapping("commands/{id}")

@@ -25,6 +25,10 @@ export class CommandService {
     return this.http.delete<void>(url);
   }
 
+  addCommand(command: String): Observable<Command> {
+    return this.http.post<Command>(this.baseUrl, command);
+  }
+
   getRandomCommand(): Observable<Command> {
     return this.http.get<Command>(`${this.baseUrl}/random`);
   }

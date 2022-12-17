@@ -29,6 +29,12 @@ export class CommandsComponent implements OnInit {
     this.commands = this.commands.filter((command) => command.id != id);
   }
 
+  addCommand(command: String) {
+    this.commandService
+      .addCommand(command)
+      .subscribe((resonse) => this.commands.push(resonse));
+  }
+
   getRandom() {
     this.commandService
       .getRandomCommand()

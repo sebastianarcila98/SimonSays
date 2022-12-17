@@ -31,8 +31,10 @@ public class CommandService {
 		return this.getRandomCommand(commands);
 	}
 
-	public void saveOrUpdate(Command command) {
-		commandRepository.save(command);
+	public Command saveOrUpdate(String command) {
+		Command commandObj = new Command();
+		commandObj.setName(command);
+		return commandRepository.save(commandObj);
 	}
 
 	public void deleteCommandById(int id) {
